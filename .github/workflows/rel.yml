@@ -1,7 +1,6 @@
 on:
-  push:
-    release:
-        types: [published]
+  release:
+    types: [published]
 
 name: Upload Release Asset
 
@@ -14,9 +13,9 @@ jobs:
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
           echo PPPPPPPPPPPP
-          echo ${GITHUB_REF#refs/heads/} "ref1"
+          echo ${GITHUB_REF#refs/heads/}
           echo PPPPPPPPPPPP
-          echo ${{ github.ref }} "github.ref"
+          echo ${{ github.ref }}
           #echo ${{ steps.extract_branch.outputs.branch }}
           #echo `git branch --show-current` "!!!!!"
           zip -r rel.zip plop
