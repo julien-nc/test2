@@ -19,15 +19,16 @@ jobs:
           echo 11111
           tag=$(git tag -l --points-at HEAD)
           echo 22222
-          vtag=$(echo $tag | grep "v[0-9]\+\.[0-9]\+\.[0-9]\+")
+          vtag=$(echo $tag | grep "v[0-9]\+\.[0-9]\+\.[0-9]\+" || echo "")
           echo 3333
-          echo "##[set-output name=curtag;]$tag"
+          echo "##[set-output name=curtag;]$vtag"
           echo 44444
           echo CURTAG IS '"'${tag}'"' '!!!!'
           echo 555555
           echo CUR VTAG IS '"'${vtag}'"' '!!!!'
 
       - name: Build project # This would actually build your project, using zip for an example artifact
+        if: ${{ startsWith( steps.tag.outputs.curtag , 'v' ) }}
         run: |
           echo 'do we get it here?'
           echo ttttttt ${{ steps.tag.outputs.curtag }}
