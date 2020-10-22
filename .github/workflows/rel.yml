@@ -23,7 +23,7 @@ jobs:
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
           echo 'do we get it here?'
-          echo ttttttt ${{ steps.tag.outputs.tag }}
+          echo ttttttt ${{ steps.tag.outputs.curtag }}
           echo show '!!!!' BRANCH
           git branch
           echo taggggg2
