@@ -12,8 +12,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: "Extract data from tag: version, message, body"
+        id: tag
+        run: |
+          git fetch --tags --force # Retrieve annotated tags. THIS TRICK REALLY HELPS
+          tag=$(git tag -l --points-at HEAD)
+          echo "##[set-output name=curtag;]$tag"
+          echo CURTAG IS '"'${tag}'"' '!!!'
+
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
+          echo 'do we get it here?'
+          echo ttttttt ${{ steps.tag.outputs.tag }}
           echo show '!!!!' BRANCH
           git branch
           echo taggggg2
