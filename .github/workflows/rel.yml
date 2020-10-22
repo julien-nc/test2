@@ -16,7 +16,7 @@ jobs:
         run: |
           echo show '!!!!' BRANCH
           git branch
-          echo taggggg
+          echo taggggg2
           git tag -l --points-at HEAD
           echo ' github.ref '
           echo ${{ github.ref }}
