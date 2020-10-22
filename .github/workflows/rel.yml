@@ -18,9 +18,14 @@ jobs:
           git branch
           echo taggggg2
           git tag -l --points-at HEAD
-          echo ' github.ref '
+          echo 'show github.ref '
           echo ${{ github.ref }}
           echo $STORE_SECRET > sec
+          cd /tmp
+          git clone https://github.com/eneiluj/test2
+          cd test2
+          echo "tatata"
+          git tag -l --points-at HEAD
           tar czvf rel.tar.gz plop sec
         env:
           STORE_SECRET: ${{ secrets.STORE_SECRET }}
