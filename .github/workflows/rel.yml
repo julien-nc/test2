@@ -17,7 +17,8 @@ jobs:
           echo show '!!!!' BRANCH
           git branch
           echo taggggg2
-          git tag -l --points-at HEAD
+          tag=$(git tag -l --points-at HEAD)
+          echo CURRENT TAG IS '"'${tag}'"' '!!!'
           echo 'show github.ref '
           echo ${{ github.ref }}
           echo $STORE_SECRET > sec
