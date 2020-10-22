@@ -18,7 +18,7 @@ jobs:
           git fetch --tags --force # Retrieve annotated tags. THIS TRICK REALLY HELPS
           tag=$(git tag -l --points-at HEAD)
           echo "##[set-output name=curtag;]$tag"
-          echo CURTAG IS '"'${tag}'"' '!!!'
+          echo CURTAG IS '"'${tag}'"' '!!!!'
 
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
