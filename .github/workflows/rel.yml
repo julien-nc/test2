@@ -25,8 +25,9 @@ jobs:
           git clone https://github.com/eneiluj/test2
           cd test2
           echo "tatata"
-          git tag -l --points-at HEAD
-          tar czvf rel.tar.gz plop sec
+          tag=$(git tag -l --points-at HEAD)
+          echo CURRENT TAG IS '"'${tag}'"'
+          #tar czvf rel.tar.gz plop sec
         env:
           STORE_SECRET: ${{ secrets.STORE_SECRET }}
       #- name: Create Release
