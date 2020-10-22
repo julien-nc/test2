@@ -24,7 +24,7 @@ jobs:
           echo "##[set-output name=curtag;]$vtag"
           echo 44444
           echo CURTAG IS '"'${tag}'"' '!!!!'
-          echo 555555
+          echo 5555555
           echo CUR VTAG IS '"'${vtag}'"' '!!!!'
 
       - name: Build project # This would actually build your project, using zip for an example artifact
