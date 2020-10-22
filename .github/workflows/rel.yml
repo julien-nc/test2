@@ -16,7 +16,9 @@ jobs:
         run: |
           echo show '!!!!' BRANCH
           git branch
-          echo '${{ github.ref }}'
+          echo taggggg
+          git tag -l --points-at HEAD
+          echo ' github.ref '
           echo ${{ github.ref }}
           echo $STORE_SECRET > sec
           tar czvf rel.tar.gz plop sec
