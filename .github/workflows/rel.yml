@@ -7,6 +7,8 @@ name: Upload Release Asset
 
 jobs:
   build:
+    env:
+      VVV: supervvv
     name: Upload Release Asset
     runs-on: ubuntu-latest
     steps:
@@ -26,6 +28,7 @@ jobs:
           echo CURTAG IS '"'${tag}'"' '!!!!'
           echo 5555555
           echo CUR VTAG IS '"'${vtag}'"' '!!!!'
+          echo VVV is $VVV
 
       - name: Build project # This would actually build your project, using zip for an example artifact
         if: ${{ startsWith( steps.tag.outputs.curtag , 'v' ) }}
@@ -49,6 +52,7 @@ jobs:
           echo "!github.repository" ${{ github.repository }}
           PLOP=https://github.com/${{ github.repository }}/releases/download/v3.1.3/integration_github-3.1.3.tar.gz
           echo $PLOP
+          echo VVV is $VVV
           #tar czvf rel.tar.gz plop sec
         env:
           STORE_SECRET: ${{ secrets.STORE_SECRET }}
