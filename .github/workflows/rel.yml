@@ -47,6 +47,8 @@ jobs:
           tag=$(git tag -l --points-at HEAD)
           echo CURRENT TAG IS '"'${tag}'"' '!!!'
           echo "!github.repository" ${{ github.repository }}
+          PLOP=https://github.com/${{ github.repository }}/releases/download/v3.1.3/integration_github-3.1.3.tar.gz
+          echo $PLOP
           #tar czvf rel.tar.gz plop sec
         env:
           STORE_SECRET: ${{ secrets.STORE_SECRET }}
