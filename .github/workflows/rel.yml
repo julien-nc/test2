@@ -46,6 +46,7 @@ jobs:
           echo "tatata"
           tag=$(git tag -l --points-at HEAD)
           echo CURRENT TAG IS '"'${tag}'"' '!!!'
+          echo "github.repository" ${{ github.repository }}
           #tar czvf rel.tar.gz plop sec
         env:
           STORE_SECRET: ${{ secrets.STORE_SECRET }}
