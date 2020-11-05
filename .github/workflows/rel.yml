@@ -17,8 +17,11 @@ jobs:
       - name: "Extract data from tag: version, message, body"
         id: tag
         run: |
+          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu/#http://fr.archive.ubuntu.com/ubuntu/#' /etc/apt/sources.list
           sudo cat /etc/apt/sources.list
-          sudo sed 's#http://azure.archive.ubuntu.com/ubuntu/#http://fr.archive.ubuntu.com/ubuntu/#' /etc/apt/sources.list
+          echo AAAAAAAA
+          ls -R /etc/apt
+          echo BBBBBBBBBB
           sudo apt update
           git fetch --tags --force # Retrieve annotated tags. THIS TRICK REALLY HELPS
           echo 11111
