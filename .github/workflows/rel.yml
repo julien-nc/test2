@@ -18,7 +18,8 @@ jobs:
         id: tag
         run: |
           sudo cat /etc/apt/sources.list
-          apt update
+          #sudo sed 's#http://azure.archive.ubuntu.com/ubuntu/#http://fr.archive.ubuntu.com/ubuntu/#' /etc/apt/sources.list
+          sudo apt update
           git fetch --tags --force # Retrieve annotated tags. THIS TRICK REALLY HELPS
           echo 11111
           tag=$(git tag -l --points-at HEAD)
