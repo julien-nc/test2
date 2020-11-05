@@ -17,6 +17,7 @@ jobs:
       - name: "Extract data from tag: version, message, body"
         id: tag
         run: |
+          sudo cat /etc/apt/sources.list
           git fetch --tags --force # Retrieve annotated tags. THIS TRICK REALLY HELPS
           echo 11111
           tag=$(git tag -l --points-at HEAD)
