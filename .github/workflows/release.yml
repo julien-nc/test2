@@ -6,8 +6,9 @@ on:
 name: Publish release
 
 jobs:
-  build:
+  my_super_job:
     name: Build, upload and release in the appstore
+    if: github.event.base_ref == 'refs/heads/master'
     environment: release
     env:
       APP_ID: test2
