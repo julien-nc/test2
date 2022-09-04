@@ -1,15 +1,12 @@
 on:
-  pull_request:
+  push:
     branches:
-      - master
-    types: [closed]
-    tags:
-      - '*'
+      - release
 
 name: Publish release
 
 jobs:
-  build:
+  my_super_job:
     name: Build, upload and release in the appstore
     environment: release
     env:
